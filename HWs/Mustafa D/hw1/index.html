@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViFrost Game Session | by Mustafa Donmez</title>
+    <style>
+        :root {
+            --bg-dark: #122932;
+            --surface-teal: #2C514C;
+            --accent-pink: #E3C0D3;
+            --text-white: #ffffff;
+            --radius: 24px;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden; /* Prevent horizontal shake */
+        }
+
+        .shadowFX{
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.325) ;
+        }
+
+        /* Navbar Section */
+        .navbar {
+            width: 100%;
+            min-height: 53px;
+            background: var(--surface-teal); /* Matched to theme for seamless mobile look */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-left {
+            height: 53px;
+            background: var(--surface-teal);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-name {
+            color: #FEF7FF;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .nav-right {
+            height: 53px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 20px;
+            gap: 16px;
+        }
+
+        /* Layout Container */
+        .container {
+            width: 95%;
+            max-width: 1080px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-bottom: 20px;
+        }
+
+        /* Robot Chat | guids for player */
+        .chat-box {
+            background: var(--surface-teal);
+            border-radius: var(--radius);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            min-height: 64px;
+        }
+
+        .chat-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .chat-text { 
+            font-size: 13px; 
+            padding-right: 40px; /* Space for counter */
+        }
+
+        .chat-counter {
+            position: absolute;
+            right: 20px;
+            bottom: 12px;
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        /* Progress bar */
+        .progress-row {
+            background: var(--surface-teal);
+            border-radius: var(--radius);
+            padding: 12px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .progress-label {
+            font-weight: 700;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .progress-track {
+            flex-grow: 1;
+            min-width: 150px;
+            height: 24px;
+            background: var(--bg-dark);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 10%;
+            height: 14px;
+            background: var(--accent-pink);
+            border-radius: var(--radius);
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        /* Vim text Editor */
+        .editor-container {
+            border: 6px solid var(--surface-teal);
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 60vh; /* Viewport relative height for better mobile fit */
+            min-height: 300px;
+
+        }
+
+        .vim-terminal {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            color: var(--accent-pink);
+            padding: 15px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 12px;
+            outline: none;
+            resize: none;
+            line-height: 1.5;
+            box-sizing: border-box;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .vim-terminal::-webkit-scrollbar {
+            display: none;
+        }
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .nav-left { padding: 0 15px; }
+            .nav-right { padding: 0 15px; }
+            .chat-box { padding: 12px 15px; }
+            .chat-text { font-size: 12px; }
+            .brand-name { font-size: 16px; }
+            .progress-label { width: 100%; text-align: center; }
+            .progress-track { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar shadowFX">
+        <div class="nav-left">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/Icon.svg" alt="logo" width="50">
+            <span class="brand-name">ViFrost</span>
+        </div>
+        <div class="nav-right">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/LeaderboardIcon.svg" alt="stats" width="24">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/AvatarIcon.svg" alt="profile" width="28">
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row chat-box shadowFX">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/AvatarIcon.svg" alt="Robot" class="chat-img">
+            <div class="chat-text">
+                Try to use `vimtutor` to learn more about vim.
+            </div>
+            <div class="chat-counter">1/5</div>
+        </div>
+
+        <div class="row progress-row shadowFX">
+            <span class="progress-label">Your progress: 10%</span>
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="row editor-container shadowFX">
+            <textarea class="vim-terminal" spellcheck="true">$ vimtutor
+===============================================================================
+=      W e l c o m e   t o   t h e   V I M   T u t o r    -    Version 1.7      =
+===============================================================================
+
+      Vim is a very powerful editor that has many commands, too many to
+      explain in a tutor such as this.  This tutor is designed to describe
+      enough of the commands that you will be able to easily use Vim as
+      an all-purpose editor.
+
+      The approximate time required to complete the tutor is 25-30 minutes,
+      depending upon how much time is spent with experimentation.
+
+      ATTENTION:
+      The commands in the lessons will modify the text.  Make a copy of this
+      file to practice on (if you started "vimtutor" this is already a copy).
+
+      It is important to remember that this tutor is set up to teach by
+      use.  That means that you need to execute the commands to learn them
+      properly.  If you only read the text, you will forget the commands!
+
+      Now, make sure that your Shift-Lock key is NOT depressed and press
+      the   j   key enough times to move the cursor so that Lesson 1.1
+      completely fills the screen.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</textarea>
+        </div>
+    </div>
+
+</body>
+</html>
