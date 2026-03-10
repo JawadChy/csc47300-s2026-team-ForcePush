@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ViFrost – Profile</title>
+    <link rel="stylesheet" href="csc473hw2.css" />
+  </head>
+  <body>
+    <!-- navigation bar-->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="nav-home">h</div>
+        <div class="nav-title">ViFrost</div>
+      </div>
+      <div class="nav-right">
+        <div class="nav-pill"></div>
+        <div class="nav-icon">i</div>
+        <div class="nav-icon">👤</div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="content">
+        <!-- left-side: current user information, wins, and losses -->
+        <section class="card">
+          <h2>Player Profile</h2>
+          <div class="profile-header">
+            <div class="avatar">A</div>
+            <div>
+              <div class="profile-text-main">ArifMan</div>
+              <div class="profile-text-muted">Current user</div>
+            </div>
+            <div class="rating-pill">Ranked • 1,482 MMR</div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Wins</div>
+              <div class="stat-value wins">72</div>
+              <div class="sub-info">Last 10: 7–3</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Losses</div>
+              <div class="stat-value losses">41</div>
+              <div class="sub-info">Streak: 3 W</div>
+            </div>
+          </div>
+
+          <!-- rank progress bar: ADDED FOR HW2 -->
+          <div class="rank-progress">
+            <div class="rank-progress-header">
+              <span class="rank-label">Next Rank: Diamond</span>
+              <span class="rank-percent">68%</span>
+            </div>
+            <div class="rank-progress-bar">
+              <div class="rank-progress-fill"></div>
+            </div>
+            <div class="rank-progress-caption">
+              Win 3 more ranked games to promote.
+            </div>
+          </div>
+
+          <p class="profile-footer">
+            Casual games are not counted toward your ranked MMR, but they still
+            appear in your match history.
+          </p>
+          <a href="csc473hw3_match_history.html" class="profile-footer">
+            View full match history →
+          </a>
+        </section>
+
+        <!-- right-side: leaderboards -->
+        <section class="card">
+          <div class="leaderboard-header">
+            <h2>Global Leaderboard</h2>
+            <span>Ranked • Season 4</span>
+          </div>
+
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Player</th>
+                <th>W</th>
+                <th>L</th>
+                <th class="leaderboard-rating">MMR</th>
+                <th class="leaderboard-rating">Change</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td class="leaderboard-name">FrostByte</td>
+                <td>132</td>
+                <td>21</td>
+                <td class="leaderboard-rating">2,134</td>
+                <td class="leaderboard-change">+18</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="leaderboard-name">Glacier</td>
+                <td>119</td>
+                <td>27</td>
+                <td class="leaderboard-rating">2,087</td>
+                <td class="leaderboard-change">+6</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="leaderboard-name">ZeroKelvin</td>
+                <td>110</td>
+                <td>33</td>
+                <td class="leaderboard-rating">2,041</td>
+                <td class="leaderboard-change down">-9</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="leaderboard-name leaderboard-me">ArifMan (You)</td>
+                <td>72</td>
+                <td>41</td>
+                <td class="leaderboard-rating">1,482</td>
+                <td class="leaderboard-change">+24</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="leaderboard-name">SnowCrash</td>
+                <td>69</td>
+                <td>39</td>
+                <td class="leaderboard-rating">1,463</td>
+                <td class="leaderboard-change down">-3</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
