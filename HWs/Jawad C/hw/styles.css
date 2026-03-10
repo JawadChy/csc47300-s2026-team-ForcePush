@@ -1,0 +1,349 @@
+/* box-sizing reset and strip default list styles */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ul { list-style: none; }
+
+
+/* design tokens */
+:root {
+    --bg:           #08070d;
+    --surface:      #0d0b18;
+    --surface-alt:  #0a0914;
+    --border:       rgba(200, 185, 230, 0.07);
+
+    --accent:       #9de3f7;
+    --accent-dim:   rgba(157, 227, 247, 0.14);
+    --accent-glow:  rgba(157, 227, 247, 0.28);
+
+    --pink:         #e3c0d3;
+    --pink-dim:     rgba(227, 192, 211, 0.18);
+
+    --text:         #c5d4e8;
+    --text-dim:     rgba(197, 212, 232, 0.35);
+
+    --mono:    'JetBrains Mono', monospace;
+}
+
+/* fill the viewport, stack header above main */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 50px;
+    border-bottom: 1px solid var(--border);
+    /* prevents the header from shrinking when the grid below tries to fill height */
+    flex-shrink: 0;
+    background: rgba(44, 81, 76, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.site-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.site-header__logo {
+    height: 38px;
+    width: auto;
+}
+
+.site-header__name {
+    font-size: 1.48rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #ede8f5;
+}
+
+.site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-header__icon {
+    height: 28px;
+    width: auto;
+}
+
+.site-header__avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.site-header__avatar:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.mode-badge {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    border: 1px solid rgba(157, 227, 247, 0.35);
+    padding: 5px 14px;
+    border-radius: 2px;
+}
+
+
+/* two-column layout: left status panel, right ascii stage */
+.queue-layout {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    /* flex: 1 makes this section expand to fill the remaining viewport height below the header */
+    flex: 1;
+    overflow: hidden;
+}
+
+.panel {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.panel--left {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 88px 69px;
+}
+
+/* ::before creates a decorative radial glow in the corner without adding an extra element to the html */
+.panel--left::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(157, 227, 247, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.status-block {
+    width: 100%;
+    max-width: 406px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 38px;
+}
+
+
+.spinner-wrap {
+    padding: 10px;
+}
+
+.spinner {
+    position: relative;
+    width: 138px;
+    height: 138px;
+}
+
+/* static tracks sit behind the arcs and give the illusion of a rail */
+.spinner__track {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(157, 227, 247, 0.09);
+}
+
+.spinner__track--outer { inset: 0; }
+.spinner__track--mid   { inset: 28px; }
+
+/* setting border to transparent first, then overriding individual sides, creates a partial arc effect */
+.spinner__arc {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+}
+
+.spinner__arc--outer {
+    inset: 0;
+    border-top-color: var(--accent);
+    border-right-color: rgba(157, 227, 247, 0.3);
+    animation: spin-cw 2s cubic-bezier(0.4, 0.05, 0.6, 0.95) infinite;
+    /* drop-shadow follows the arc shape box-shadow would apply to the full bounding box instead */
+    filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+
+.spinner__arc--mid {
+    inset: 28px;
+    border-bottom-color: var(--pink);
+    border-left-color: rgba(227, 192, 211, 0.25);
+    animation: spin-ccw 2.8s cubic-bezier(0.4, 0.05, 0.6, 0.95) infinite;
+}
+
+.spinner__core {
+    position: absolute;
+    inset: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow:
+        0 0 12px var(--accent),
+        0 0 28px var(--accent-glow),
+        0 0 50px rgba(157, 227, 247, 0.12);
+    animation: core-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes spin-cw {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-ccw {
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes core-pulse {
+    0%, 100% { opacity: 0.45; transform: scale(0.8); }
+    50%       { opacity: 1;    transform: scale(1);   }
+}
+
+
+.finding-text {
+    font-family: var(--mono);
+    font-size: 1.44rem;
+    font-weight: 500;
+    color: #ddeef8;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.dots {
+    display: inline;
+}
+
+.dot {
+    display: inline-block;
+    color: var(--accent);
+    animation: dot-blink 1.6s ease-in-out infinite;
+}
+
+.dot:nth-child(1) { animation-delay: 0s;    }
+.dot:nth-child(2) { animation-delay: 0.27s; }
+.dot:nth-child(3) { animation-delay: 0.54s; }
+
+/* holding opacity at 1 between 45% and 65% creates a visible pause before the dot fades out again */
+@keyframes dot-blink {
+    0%, 100% { opacity: 0; }
+    45%, 65% { opacity: 1; }
+}
+
+
+.status-sub {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+}
+
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+}
+
+
+.queue-stats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.queue-stats__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 1.09rem;
+}
+
+.queue-stats__label {
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+}
+
+.queue-stats__value {
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+}
+
+
+/* right panel */
+.panel--right {
+    background: var(--surface-alt);
+}
+
+
+/* match-found text : hidden until JS adds --found, then blinks outline/invisible before filling */
+.intro-stage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.intro-line {
+    font-family: var(--mono);
+    font-size: 3.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    -webkit-text-stroke: 1.5px var(--accent);
+    color: transparent;
+    opacity: 0;
+    text-shadow: none;
+}
+
+/* triggered by JS when match is found */
+.intro-line--found {
+    animation: match-reveal 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/*
+    0-45%  : outline flickers - visible (no fill) then invisible, three times
+    45-70% : outline holds, then color fills in with glow
+    70-100%: solid text holds
+*/
+@keyframes match-reveal {
+    0%   { opacity: 0;   color: transparent; text-shadow: none; }
+    5%   { opacity: 1;   color: transparent; text-shadow: none; }
+    12%  { opacity: 1;   color: transparent; text-shadow: none; }
+    13%  { opacity: 0;   color: transparent; text-shadow: none; }
+    20%  { opacity: 0;   color: transparent; text-shadow: none; }
+    21%  { opacity: 1;   color: transparent; text-shadow: none; }
+    28%  { opacity: 1;   color: transparent; text-shadow: none; }
+    29%  { opacity: 0;   color: transparent; text-shadow: none; }
+    36%  { opacity: 0;   color: transparent; text-shadow: none; }
+    37%  { opacity: 1;   color: transparent; text-shadow: none; }
+    45%  { opacity: 1;   color: transparent; text-shadow: none; }
+    70%  { opacity: 1;   color: var(--accent);
+           text-shadow: 0 0 20px var(--accent-glow), 0 0 50px rgba(157, 227, 247, 0.15); }
+    100% { opacity: 1;   color: var(--accent);
+           text-shadow: 0 0 20px var(--accent-glow), 0 0 50px rgba(157, 227, 247, 0.15); }
+}
