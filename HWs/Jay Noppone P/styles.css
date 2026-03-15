@@ -1,0 +1,144 @@
+:root {
+  --colorMain:        #122932;
+  --colorSurface:     #111111;
+  --colorSurfaceAlt:  #252525;
+  --colorBorder:      #2e2e2e;
+  --colorText:        rgba(255, 255, 255, 0.87);
+  --colorTextMuted:   #888888;
+  --colorAccent:      #646cff;
+  --colorAccentHover: #535bf2;
+  --colorDanger:      #f87171;
+  --colorOverlay:     rgba(0, 0, 0, 0.6);
+  --colorNavbar:      #2C514C;
+  --colorNavbarBtn:   #E3C0D3;
+  --colorNavbarBtnHover: #d4a8c0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--colorText);
+  background-color: var(--colorMain);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--colorSurfaceAlt);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--colorAccent);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* ── Navbar ─────────────────────────────────────────────── */
+
+.navbar {
+  background-color: var(--colorNavbar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+  width: 100%;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.navbar__logo-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__title {
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar__stats-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.navbar__stats-btn:hover {
+  border-color: transparent;
+}
+
+.navbar__login {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__log-in-btn {
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+.navbar__log-in-btn:hover {
+  background-color: var(--colorNavbarBtnHover);
+  border-color: transparent;
+}

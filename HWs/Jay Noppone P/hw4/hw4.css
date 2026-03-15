@@ -1,0 +1,43 @@
+.lobby {
+  flex: 1;
+  padding-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lobby_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lobby_join_btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.lobby_status {
+  font-size: 0.9rem;
+  color: var(--colorTextMuted);
+}
+
+.hint {
+  position: absolute;
+  bottom: 0;
+}
+
+.hint_text {
+  color: var(--colorText);
+  font-size: 18px;
+  animation: 10s ease-in 0.5s infinite normal fade-in;
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lobby</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="hw4.css" />
+  </head>
+  <body>
+    <div id="root">
+
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <div class="navbar__logo-icon">
+            <img src="../public/Icon.svg" alt="ViFrost" />
+          </div>
+          <span class="navbar__title">ViFrost</span>
+        </div>
+
+        <div class="navbar__right">
+          <button class="navbar__stats-btn" title="Stats">
+            <img src="../public/LeaderboardIcon.svg" alt="Leaderboard" />
+          </button>
+          <div class="navbar__login">
+            <button type="button" class="navbar__log-in-btn">
+              <img src="../public/AvatarIcon.svg" alt="Avatar" />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <main class="lobby">
+        <div class="lobby_card">
+          <button type="button" class="lobby_join_btn" disabled>
+            Join Queue
+          </button>
+          <p class="lobby_status">
+            WS: <strong>closed</strong>
+          </p>
+        </div>
+        <div class="hint">
+          <h1 class="hint_text"></h1>
+        </div>
+      </main>
+
+    </div>
+    <script src="hints.js"></script>
+    <script>
+      const hint = hints[Math.floor(Math.random() * hints.length)];
+      document.querySelector('.hint_text').textContent = 'Hint: ' + hint.title;
+    </script>
+  </body>
+</html>
