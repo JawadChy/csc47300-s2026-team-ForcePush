@@ -11,8 +11,10 @@
     <!-- navigation bar -->
     <header class="navbar">
       <div class="nav-left">
-        <div class="nav-home">h</div>
-        <div class="nav-title">ViFrost</div>
+        <a class="nav-link" href="csc473hw2.html" aria-label="Back to HW2 profile page">
+          <div class="nav-home">h</div>
+        </a>
+        <a class="nav-link" href="csc473hw2.html"> <div class="nav-title">ViFrost</div></a>
       </div>
       <div class="nav-right">
         <div class="nav-pill"></div>
@@ -22,11 +24,30 @@
     </header>
 
     <main class="page">
-      <div class="content">
+      <div class="content content--full">
         <section class="card">
           <div class="leaderboard-header">
             <h2>Match History</h2>
             <span>Latest games for ArifMan</span>
+          </div>
+
+          <!-- HW4: summary stats for match history -->
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Games Played</div>
+              <div class="stat-value">8</div>
+              <div class="sub-info">Last 8 ranked matches</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Win Rate</div>
+              <div class="stat-value wins">50%</div>
+              <div class="sub-info">4 wins • 4 losses</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Best Accuracy</div>
+              <div class="stat-value wins">94%</div>
+              <div class="sub-info">vs IceShard</div>
+            </div>
           </div>
 
           <table class="leaderboard-table">

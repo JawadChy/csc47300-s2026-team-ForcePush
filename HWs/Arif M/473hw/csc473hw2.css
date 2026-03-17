@@ -402,3 +402,18 @@ body {
   }
 }
 
+
+/* ADDED FOR HW4*/
+
+.content--full {
+  max-width: 1200px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* hw4 end*/
