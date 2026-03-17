@@ -20,6 +20,9 @@ ul { list-style: none; }
     --text:         #c5d4e8;
     --text-dim:     rgba(197, 212, 232, 0.35);
 
+    --colorText:        #c5d4e8;
+    --colorTextMuted:   rgba(197, 212, 232, 0.35);
+
     --mono:    'JetBrains Mono', monospace;
 }
 
@@ -346,4 +349,142 @@ body {
            text-shadow: 0 0 20px var(--accent-glow), 0 0 50px rgba(157, 227, 247, 0.15); }
     100% { opacity: 1;   color: var(--accent);
            text-shadow: 0 0 20px var(--accent-glow), 0 0 50px rgba(157, 227, 247, 0.15); }
+}
+
+
+/* navbar — shared across lobby and queue pages */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 50px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    background: rgba(44, 81, 76, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar__logo-icon img {
+    height: 38px;
+    width: auto;
+}
+
+.navbar__title {
+    font-size: 1.48rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #ede8f5;
+}
+
+.navbar__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar__stats-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.navbar__stats-btn img {
+    height: 28px;
+    width: auto;
+}
+
+.navbar__log-in-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.navbar__log-in-btn img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navbar__log-in-btn img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+
+/* lobby page */
+.lobby {
+    flex: 1;
+    padding-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.lobby_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.ascii-output {
+    font-family: var(--mono);
+    font-size: 8px;
+    line-height: 1.1;
+    color: var(--accent);
+    white-space: pre;
+    overflow: hidden;
+    display: block;
+    filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+
+.lobby_join_btn {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-family: var(--mono);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid rgba(157, 227, 247, 0.35);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lobby_join_btn:hover {
+    background: rgba(157, 227, 247, 0.22);
+    box-shadow: 0 0 16px var(--accent-glow);
+}
+
+
+/* hint — jay's feature */
+.hint {
+  position: absolute;
+  bottom: 0;
+}
+
+.hint_text {
+  color: var(--colorText);
+  font-size: 18px;
+  animation: 10s ease-in 0.5s infinite normal fade-in;
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; }
 }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViFrost - Waiting Room</title>
+
+    <!-- jetbrains mono font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/queue.js" defer></script>
+</head>
+
+<body>
+
+    <!-- top bar: logo links back to lobby, badge shows current state -->
+    <nav class="navbar">
+
+        <a class="navbar__logo" href="index.html">
+            <div class="navbar__logo-icon">
+                <img src="assets/Icon.svg" alt="ViFrost" />
+            </div>
+            <span class="navbar__title">ViFrost</span>
+        </a>
+
+        <div class="navbar__right">
+            <span class="mode-badge">IN QUEUE</span>
+            <button class="navbar__stats-btn" title="Leaderboard">
+                <img src="assets/LeaderboardIcon.svg" alt="Leaderboard" />
+            </button>
+            <button type="button" class="navbar__log-in-btn">
+                <img src="assets/AvatarIcon.svg" alt="Avatar" />
+            </button>
+        </div>
+
+    </nav>
+
+    <!-- two-column layout: left status panel, right match-found stage -->
+    <main class="queue-layout">
+
+        <!-- left panel: spinner, status text, and live queue stats -->
+        <section class="panel panel--left">
+            <div class="status-block">
+
+                <!-- spinner is built from layered divs: two static tracks, two rotating arcs, and a pulsing core -->
+                <div class="spinner-wrap">
+                    <div class="spinner">
+                        <div class="spinner__track spinner__track--outer"></div>
+                        <div class="spinner__arc spinner__arc--outer"></div>
+                        <div class="spinner__track spinner__track--mid"></div>
+                        <div class="spinner__arc spinner__arc--mid"></div>
+                        <div class="spinner__core"></div>
+                    </div>
+                </div>
+
+                <!-- each dot is its own span so css can stagger the animation delay -->
+                <h1 class="finding-text">
+                    Finding match<span class="dots">
+                        <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+                    </span>
+                </h1>
+
+                <p class="status-sub">Searching for an opponent</p>
+
+                <div class="divider"></div>
+
+                <!-- values start as dashes and are populated by queue.js via queue.json -->
+                <ul class="queue-stats">
+
+                    <li class="queue-stats__row">
+                        <span class="queue-stats__label">Players online</span>
+                        <span class="queue-stats__value">-</span>
+                    </li>
+
+                    <li class="queue-stats__row">
+                        <span class="queue-stats__label">In queue</span>
+                        <span class="queue-stats__value">-</span>
+                    </li>
+
+                    <li class="queue-stats__row">
+                        <span class="queue-stats__label">Avg. wait</span>
+                        <span class="queue-stats__value">-</span>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- right panel: hidden until js triggers the match-found animation -->
+        <section class="panel panel--right">
+            <div class="intro-stage">
+                <div class="intro-line">match found</div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
