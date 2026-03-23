@@ -1,0 +1,219 @@
+:root {
+    --bg-dark: #122932;
+    --surface-teal: #2C514C;
+    --accent-pink: #E3C0D3;
+    --text-white: #ffffff;
+    --radius: 24px;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* Prevent horizontal shake */
+}
+
+.shadowFX{
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.325) ;
+}
+
+/* Navbar Section */
+.navbar {
+    width: 100%;
+    min-height: 53px;
+    background: var(--surface-teal); /* Matched to theme for seamless mobile look */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-left {
+    height: 53px;
+    background: var(--surface-teal);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.brand-name {
+    color: #FEF7FF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.nav-right {
+    height: 53px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+}
+
+/* ========= homework 2 - section ========= */
+/* menu drop down */
+.drop-menu {
+    display: grid; 
+    position: absolute;  
+    background-color: var(--accent-pink); 
+    color: var(--surface-teal); 
+    z-index: 10; 
+    top: 3.5rem; 
+    padding: 0 20px; 
+    gap: 5px; 
+    border-radius: 20px;
+    
+    /* Animation Properties */
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+    pointer-events: none; 
+}
+
+/* This class will be toggled by JS */
+.drop-menu.show {
+    max-height: 300px; 
+    opacity: 1;
+    padding: 20px;
+    pointer-events: auto; 
+}
+
+.drop-menu > a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 5px 0;
+}
+/* ======== homework 2 - section end ======== */
+
+/* Layout Container */
+.container {
+    width: 95%;
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 20px;
+}
+
+/* Robot Chat | guids for player */
+.chat-box {
+    background: var(--surface-teal);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: 64px;
+}
+
+.chat-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.chat-text { 
+    font-size: 13px; 
+    padding-right: 40px; /* Space for counter */
+}
+
+.chat-counter {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* Progress bar */
+.progress-row {
+    background: var(--surface-teal);
+    border-radius: var(--radius);
+    padding: 12px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.progress-label {
+    font-weight: 700;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.progress-track {
+    flex-grow: 1;
+    min-width: 150px;
+    height: 24px;
+    background: var(--bg-dark);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 10%;
+    height: 14px;
+    background: var(--accent-pink);
+    border-radius: var(--radius);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+/* Vim text Editor */
+.editor-container {
+    border: 6px solid var(--surface-teal);
+    border-radius: var(--radius);
+    overflow: hidden;
+    height: 60vh; /* Viewport relative height for better mobile fit */
+    min-height: 300px;
+
+}
+
+.vim-terminal {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: var(--accent-pink);
+    padding: 15px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    outline: none;
+    resize: none;
+    line-height: 1.5;
+    box-sizing: border-box;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.vim-terminal::-webkit-scrollbar {
+    display: none;
+}
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .nav-left { padding: 0 15px; }
+    .nav-right { padding: 0 15px; }
+    .chat-box { padding: 12px 15px; }
+    .chat-text { font-size: 12px; }
+    .brand-name { font-size: 16px; }
+    .progress-label { width: 100%; text-align: center; }
+    .progress-track { width: 100%; }
+}

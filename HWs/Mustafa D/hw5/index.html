@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViFrost Game Session | by Mustafa Donmez</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar shadowFX">
+        <div class="nav-left" id="navToggle" style="cursor: pointer;">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/Icon.svg" alt="logo" width="50">
+            <span class="brand-name">ViFrost</span>
+            <div class="drop-menu shadowFX" id="dropMenu">
+                <a href="">Home Page</a>
+                <a href="">Select Level</a>
+                <a href="">Multiplayer</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/LeaderboardIcon.svg" alt="stats" width="24">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/AvatarIcon.svg" alt="profile" width="28">
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row chat-box shadowFX">
+            <img src="https://raw.githubusercontent.com/jaynopponep/ViFrost/refs/heads/main/vifrost/public/AvatarIcon.svg" alt="Robot" class="chat-img">
+            <div class="chat-text">
+                Try to use `vimtutor` to learn more about vim.
+            </div>
+            <div class="chat-counter">1/5</div>
+        </div>
+
+        <div class="row progress-row shadowFX">
+            <span class="progress-label">Your progress: 10%</span>
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="row editor-container shadowFX">
+            <textarea class="vim-terminal" spellcheck="true">$ vimtutor
+===============================================================================
+=      W e l c o m e   t o   t h e   V I M   T u t o r    -    Version 1.7      =
+===============================================================================
+
+      Vim is a very powerful editor that has many commands, too many to
+      explain in a tutor such as this.  This tutor is designed to describe
+      enough of the commands that you will be able to easily use Vim as
+      an all-purpose editor.
+
+      The approximate time required to complete the tutor is 25-30 minutes,
+      depending upon how much time is spent with experimentation.
+
+      ATTENTION:
+      The commands in the lessons will modify the text.  Make a copy of this
+      file to practice on (if you started "vimtutor" this is already a copy).
+
+      It is important to remember that this tutor is set up to teach by
+      use.  That means that you need to execute the commands to learn them
+      properly.  If you only read the text, you will forget the commands!
+
+      Now, make sure that your Shift-Lock key is NOT depressed and press
+      the   j   key enough times to move the cursor so that Lesson 1.1
+      completely fills the screen.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</textarea>
+        </div>
+    </div>
+    <!-- using the compiled ts code -->
+    <script src="script.js"></script>
+</body>
+</html>
