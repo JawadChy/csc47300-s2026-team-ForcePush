@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ViFrost – HW5</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- navigation bar -->
+    <header class="navbar">
+      <div class="nav-left">
+        <a
+          class="nav-link"
+          href="../csc473hw2.html"
+          aria-label="Back to HW2 profile page"
+        >
+          <div class="nav-home">h</div>
+        </a>
+        <a class="nav-link" href="../csc473hw2.html">
+          <div class="nav-title">ViFrost</div></a
+        >
+      </div>
+      <div class="nav-right">
+        <div class="nav-pill"></div>
+        <div class="nav-icon">i</div>
+        <div class="nav-icon">👤</div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="content content--full">
+        <section class="card">
+          <div class="leaderboard-header">
+            <h2>Match History</h2>
+            <span>Latest games for ArifMan (click headers to sort)</span>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Games Played</div>
+              <div class="stat-value">8</div>
+              <div class="sub-info">Last 8 ranked matches</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Win Rate</div>
+              <div class="stat-value wins">50%</div>
+              <div class="sub-info">4 wins • 4 losses</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Best Accuracy</div>
+              <div class="stat-value wins">94%</div>
+              <div class="sub-info">vs IceShard</div>
+            </div>
+          </div>
+
+          <table class="leaderboard-table" aria-label="Match history table">
+            <thead>
+              <tr>
+                <th data-sort-key="index" tabindex="0" title="Click to sort">
+                  #
+                </th>
+                <th data-sort-key="opponent" tabindex="0" title="Click to sort">
+                  Opponent
+                </th>
+                <th data-sort-key="length" tabindex="0" title="Click to sort">
+                  Match Length
+                </th>
+                <th data-sort-key="accuracy" tabindex="0" title="Click to sort">
+                  Accuracy
+                </th>
+                <th data-sort-key="result" tabindex="0" title="Click to sort">
+                  Result
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Newest match at the top -->
+              <tr>
+                <td>1</td>
+                <td class="leaderboard-name">SnowCrash</td>
+                <td>18:23</td>
+                <td>92%</td>
+                <td class="leaderboard-change">W</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="leaderboard-name">ZeroKelvin</td>
+                <td>22:47</td>
+                <td>88%</td>
+                <td class="leaderboard-change">W</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="leaderboard-name">Glacier</td>
+                <td>15:05</td>
+                <td>79%</td>
+                <td class="leaderboard-change down">L</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td class="leaderboard-name">FrostByte</td>
+                <td>27:11</td>
+                <td>84%</td>
+                <td class="leaderboard-change down">L</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td class="leaderboard-name">ArcticFox</td>
+                <td>13:56</td>
+                <td>90%</td>
+                <td class="leaderboard-change">W</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="leaderboard-name">BlizzardKing</td>
+                <td>19:34</td>
+                <td>76%</td>
+                <td class="leaderboard-change down">L</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td class="leaderboard-name">IceShard</td>
+                <td>11:42</td>
+                <td>94%</td>
+                <td class="leaderboard-change">W</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td class="leaderboard-name">ChillWind</td>
+                <td>16:29</td>
+                <td>81%</td>
+                <td class="leaderboard-change down">L</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
