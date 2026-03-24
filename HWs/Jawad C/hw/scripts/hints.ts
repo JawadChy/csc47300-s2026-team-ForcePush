@@ -1,5 +1,9 @@
-"use strict";
-const hints = [
+interface Hint {
+    readonly id: number;
+    readonly title: string;
+}
+
+const hints: readonly Hint[] = [
     {
         id: 1,
         title: "See a repetitive fix? Use 'qa' to build a macro to improve efficiency"

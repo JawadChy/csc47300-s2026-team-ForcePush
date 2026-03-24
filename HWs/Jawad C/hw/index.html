@@ -14,6 +14,7 @@
 
     <!-- load ascii frames before the page renders -->
     <script src="data/animation.js"></script>
+    <script src="scripts/hints.js"></script>
 </head>
 
 <body>
@@ -58,22 +59,7 @@
 
     </main>
 
-    <script src="scripts/hints.js"></script>
-
-    <script>
-        // pick a random hint and display it
-        const hint = hints[Math.floor(Math.random() * hints.length)];
-        document.querySelector('.hint_text').textContent = 'Hint: ' + hint.title;
-
-        // play ascii animation at 30 fps, looping through all frames
-        const asciiEl = document.getElementById('ascii-stage');
-        let frameIndex = 0;
-
-        setInterval(() => {
-            asciiEl.textContent = frames[frameIndex];
-            frameIndex = (frameIndex + 1) % frames.length;
-        }, 1000 / 30);
-    </script>
+    <script src="scripts/lobby.js"></script>
 
 </body>
 
